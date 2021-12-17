@@ -119,7 +119,7 @@ Try {
 		[string]$installPhase = 'Pre-Installation'
 
 		## Show Welcome Message, close Internet Explorer if needed, verify there is enough disk space to complete the install, and persist the prompt
-		Show-InstallationWelcome -CloseApps 'iexplore' -CheckDiskSpace -PersistPrompt
+		Show-InstallationWelcome -CloseApps 'stats' -CheckDiskSpace -PersistPrompt
 
 		## Show Progress Message (with the default message)
 		Show-InstallationProgress
@@ -182,7 +182,7 @@ Try {
 		[string]$installPhase = 'Pre-Uninstallation'
 
 		## Show Welcome Message, close Internet Explorer with a 60 second countdown before automatically closing
-		Show-InstallationWelcome -CloseApps 'iexplore' -CloseAppsCountdown 60
+		Show-InstallationWelcome -CloseApps 'stats' -CloseAppsCountdown 60
 
 		## Show Progress Message (with the default message)
 		Show-InstallationProgress
@@ -232,8 +232,8 @@ Catch {
 # SIG # Begin signature block
 # MIImZwYJKoZIhvcNAQcCoIImWDCCJlQCAQExDzANBglghkgBZQMEAgEFADB5Bgor
 # BgEEAYI3AgEEoGswaTA0BgorBgEEAYI3AgEeMCYCAwEAAAQQH8w7YFlLCE63JNLG
-# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCBbYlxv2bFbj2cz
-# G8KyGOvfbRD3YPMiYyb4kFggl58uvqCCH9IwggVvMIIEV6ADAgECAhBI/JO0YFWU
+# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCBnVoDMVEC5n/cr
+# 0tGIOFU9gQh3dT8T8Cfvaxs2bDQ7RKCCH9IwggVvMIIEV6ADAgECAhBI/JO0YFWU
 # jTanyYqJ1pQWMA0GCSqGSIb3DQEBDAUAMHsxCzAJBgNVBAYTAkdCMRswGQYDVQQI
 # DBJHcmVhdGVyIE1hbmNoZXN0ZXIxEDAOBgNVBAcMB1NhbGZvcmQxGjAYBgNVBAoM
 # EUNvbW9kbyBDQSBMaW1pdGVkMSEwHwYDVQQDDBhBQUEgQ2VydGlmaWNhdGUgU2Vy
@@ -408,31 +408,31 @@ Catch {
 # IFNpZ25pbmcgQ0EgUjM2AhEApU3fcPvc8UxUgrjysXLKMTANBglghkgBZQMEAgEF
 # AKCBhDAYBgorBgEEAYI3AgEMMQowCKACgAChAoAAMBkGCSqGSIb3DQEJAzEMBgor
 # BgEEAYI3AgEEMBwGCisGAQQBgjcCAQsxDjAMBgorBgEEAYI3AgEVMC8GCSqGSIb3
-# DQEJBDEiBCBMExhU5uUj4+LfISAn2yAgzLmLLfOTiikRNVp4AeBi0jANBgkqhkiG
-# 9w0BAQEFAASCAYB6xT5/oDjtEQt0hHPZg5t2yVJXO7b6xrRB/5qUFA04kVmffdAm
-# pC+zYbd442dRqplWeh21ewQXEYcDZsnXefYrNWI3SUqEg8ksFwv+Hn74dlid+qlH
-# 05omoNKfuO1+7WY1jXQFZcJc8MoEcwRn5jcoxRApzHDrcIIQoAhsrWpGYI9Z9NCE
-# o7qwZNTvWbxqoScO7vmNOP7jZpqrElsnoTuyZoEb3gzi/OpbmbAEOip44GCIoLNk
-# iNtsSIOyaCt1tED6u/TQpLYdqbKvnGdVG9g1p58yqLJ9g/S8uK6pVOhu069DS5v/
-# 9HcR/2Am9/B2YwlpHnp3obIeNFncDpRipZ8drSTR+YXSNF0g9rOJjaaPBIhLDjwA
-# 7Yfj5rpsUO/G4g4eOs9+j6hgTHF/aGHtG/hBYMCLLtA0BDa6GpzFxtxv6BN1dgPO
-# 5WWuZB49OHfS1fMB2x/xdEh/pJvM9y8XhF/cUSaT2hLlyaWwfpAobIRgohZsDfw7
-# pQsp/RJetDdnSf+hggNMMIIDSAYJKoZIhvcNAQkGMYIDOTCCAzUCAQEwgZIwfTEL
+# DQEJBDEiBCDx7R7SorpRQRFTOpzSIDjVE4sOtBajWs16vkxVEqTyozANBgkqhkiG
+# 9w0BAQEFAASCAYBV+T8EKuItQafyXt7q33763VEcqgLS3IzGek07NFJVVBQu7pQG
+# 3XVuFxqN0JvDGBdNQxsgR9cfSR+3rJU9Tz7b3ybxtlNW377mxqhLUn8BDu10brkn
+# gq9wDpLSU75u65r1E4ssR6/jeol+OWns+VjDFy/ydGZf8S8+LRh0pZKQt0Mi8aes
+# WaJnjCq4o4X93k8AIBlbYz2JctF5Ai8h7YRhFp3oAzMv+aIP9STZHIaC1f0DiyEB
+# pOWuh7M/rRwFCL/3r4YBb1kGPKyuTzH61wb9kIgHqRxrFiZi8a7PTwGLIQhLbI5R
+# gXB1IdGWTN6xLTqfXAHsCZBNoH6RPhFJX+/fmQOJqL4U3ST89kR8958KEuGsP+H5
+# /Djlz2R29vjVjXEWubyYRYjrgSarxxjwuhD0wA97tgMePlG0cjujaHjliHVDaEDU
+# gQHG0dqlPnhXwuiGSS5YLmjbkWtmNOS/03ndp3OzE5PHU3Uh4UzLiUjJpa2t5wwL
+# ykBH4WCZZ9ius+uhggNMMIIDSAYJKoZIhvcNAQkGMYIDOTCCAzUCAQEwgZIwfTEL
 # MAkGA1UEBhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UE
 # BxMHU2FsZm9yZDEYMBYGA1UEChMPU2VjdGlnbyBMaW1pdGVkMSUwIwYDVQQDExxT
 # ZWN0aWdvIFJTQSBUaW1lIFN0YW1waW5nIENBAhEAjHegAI/00bDGPZ86SIONazAN
 # BglghkgBZQMEAgIFAKB5MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZI
-# hvcNAQkFMQ8XDTIxMTIxNjE4NDIwMlowPwYJKoZIhvcNAQkEMTIEMMckLn9iRum2
-# PmW2vmhmFakCMQgppm2tWSHDjji2P72NWmqH1uXhL5+OF4NEShePoTANBgkqhkiG
-# 9w0BAQEFAASCAgADJuUaX2t+pLjKpltyNuygeRFHz8n70rwD2dljRsxX6E4B23cN
-# EoU96oX995eUx4cCCj3tUPkv2KxTgSL1gVcTlnpAmeK3oDMSfCv35UXA3U73XKlO
-# Dg7g1dVVru0cPw9mQZrDRc/XTcdZvobSnUN4bUVh+ZSCmxFn3240KNoYVrKJsD42
-# PMvEMRtczdve+dSBfofOCiHrF1Nkvfdrhr7nPIGpkjwchzHPvLesEhJ5oN1XehVK
-# ZXm2JYNpiIuy8op8FA6Zu1FrKvzFsb1fyBc4BMdS3wx6p96pC8NIjYbRl5Riprp/
-# GyxWn3MKb9NupGAYUemLu0AP/y7JWhuzmlE9lvTMFhqSB6TduZ2UKn7R0mF+5cF+
-# qYWH1Iq1dfL85kQP/G20jsm+9K8qIOy0Op74c0kZLVr//+tuJd6NmkmVleskH2cc
-# W3HMA4+ZKAPzxts0+ZoiW4RwuhveUFcApC7c1EutdhYAq56zBIVlC1l6dqXWvQdb
-# UL9PUbqytytLpZgxe/Np9anFpZ7Un5Raftzs1TfNur4oojwMDQ+NxjoNnOcSLmIt
-# wDwJoreGn33qbWV+K5JTj8VLplkR90U9iQeJTJGYLAZpTRkUZr3Z5MG0BI6wmHs+
-# DJHO4N0/TrGFOwvVecd3ukcAhRP0CWFedkpF8wxfMHw1p6NHTWIzE1XDRA==
+# hvcNAQkFMQ8XDTIxMTIxNzE4MTYxNVowPwYJKoZIhvcNAQkEMTIEMPhLS+BIU5Go
+# KeKBg670XgkRftcVoC1VD/o5KRRcrDgdbvyIc+IUz2X3PIMJPM9LMzANBgkqhkiG
+# 9w0BAQEFAASCAgBWzSTSl6GyVa/uUTazT2SoRNetZX34gk83rDNEXoU5XksYJGZC
+# NW31AoEncqXvrgzjoenOlgeX85NpwH+cXOiKc4gbbobWcO2AxE/Jn7rfnUKSGN7B
+# rZ16jbwf4b0EpVnpN5Jnveo91sfvFdi4YzR4SKHRKGWPbop5wDvzP7JZw7g42/VH
+# f8SEUKqfMunJI7XkrR48vAYxbJEeI7928BY6lXtxlrYujKiNzkU8iYZuBk4vjmwJ
+# mJ9CY3VKGxd+RompztdY58NnyhJEPlKNtUfwNVWHDjYhxqBlt8HVmsohoWm1jHwh
+# I+zSsYD2VDYdVfw8BKR2X3i3dWvbuCdQCH/S1m9ig11Z8tYWcNknMgnxpwXtsexB
+# ivOZ4lmA6dTrkFBdvgSK+5uixw07/gioLAnXUYCHKOmaC0ee3v7+eyhzI2dEyNpo
+# +DV+ubW7IZGxl+bJ579NFseOqiumqvCsm/H1ibAVari25z7kxFjRQxIcPqoPtPBg
+# ++Ms7f32MkMVRDgmiP4Nadw3Pc8EvgqQnmY5L0PP8CFJsba+Xolu6qmhLq4MD3s9
+# +jnWX9ZQ8KUKeAauv8/ha3J8Be/DU6l2VY6q9xpf40OKzoib5TMajPHFdjvDLrPE
+# KN6WqBTmEKatoLj0C/EZ/ya94V1+0knl2zqqTOR6lzLIOfaQKkDIZ/y79g==
 # SIG # End signature block
